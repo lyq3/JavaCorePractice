@@ -8,6 +8,7 @@ public class LambdaClass {
      * @param lam
      */
     public void parmWhthLambdaInterface(String a, String b,LambdaInterface lam){
-        lam.one(a,b);
+        String str= lam.one(a,b);
+        System.out.println(str);
     }
 }

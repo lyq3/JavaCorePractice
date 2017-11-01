@@ -16,6 +16,7 @@ package com.lyq3.lambda;
 
  　　　　　　可以由 default 修饰的默认方法方法，这个关键字是Java8中新增的，为的目的就是使得某一些接口，原则上只有一个方法被实现，但是由于历史原因，不得不加入一些方法来兼容整个JDK中的API，所以就需要使用default关键字来定义这样的方法
  */
+//@FunctionalInterface 省略也能运行，接口里方法只能有一个，已运行验证
 public interface LambdaInterface {
     String one(String a, String b);
 }
