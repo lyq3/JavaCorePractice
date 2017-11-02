@@ -1,6 +1,5 @@
 package com.lyq3.lambda;
 
-import com.sun.deploy.util.StringUtils;
 
 public class TestLambda {
     public static void main(String[] args) {
