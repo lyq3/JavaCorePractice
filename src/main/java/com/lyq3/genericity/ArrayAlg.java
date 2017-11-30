@@ -1,7 +1,6 @@
 package com.lyq3.genericity;
 
 /**
- *
  * 泛型类测试
  */
 public class ArrayAlg {
