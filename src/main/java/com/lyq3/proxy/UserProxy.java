@@ -17,25 +17,23 @@ public class UserProxy implements InvocationHandler {
         System.err.println("############我是JDK动态代理################");
         Object result = null;
         //反射方法前调用
-        System.err.println("我准备调用了");
-        if (Object.class.equals(method.getDeclaringClass())) {
-            try {
+        System.err.println("开始调用");
+        if (Object.class.equals(method.getDeclaringClass())) {//判断是不是继承自Object的3个方法（toString、equals、hashcode）
                 // 诸如hashCode()、toString()、equals()等方法，将target指向当前对象this
-//                return method.invoke(this, args);
-            } catch (Throwable t) {
-            }
+                result=method.invoke(this, args);//根据实际情况确定调用谁的方法,这里暂时调用当前类的tostring，
+                System.out.println("根据实际情况确定调用谁的方法");
+        } else {
+
+            result = method.invoke(new UserMapperImpl(), args);
+            //反射方法后调用.
+            System.err.println("调用完了");
         }
-        System.out.println(this.getClass().getName());
-//        result=method.invoke(this, args);
-        //反射方法后调用.
-        System.err.println("调用完了");
-        return new UserMapperImpl();
+        return result;
     }
 
     public static void main(String[] args) {
         UserMapper user = new UserProxy().newInstance(UserMapper.class);
-        System.out.println("===" + user.toString() + "123112");
-        System.out.println("↑↑↑↑"+user.getClass().getName());
-        user.findUserById(1);
+        User u = user.findUserById(1);
+        System.out.println(u.getId());
     }
 }

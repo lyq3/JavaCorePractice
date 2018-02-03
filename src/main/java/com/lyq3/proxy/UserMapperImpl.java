@@ -10,7 +10,6 @@ public class UserMapperImpl implements UserMapper{
         User user = new User();
         user.setId(1);
         user.setName("卡卢比");
-        System.out.println(user.getName());
         return user;
     }
 }
