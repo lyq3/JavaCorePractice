@@ -56,7 +56,7 @@ public class AES {
     public static SecretKey getKey(String seed) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         //获取一个密钥生成器实例
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-        SecureRandom random = new SecureRandom();
+        SecureRandom random = SecureRandom.getInstance("SHA1PRNG");//必须指定随机数生成算法，否则在Linux环境下报错
         random.setSeed(seed.getBytes("UTF-8"));//设置加密用的种子
         keyGenerator.init(128,random);
         SecretKey secretKey = keyGenerator.generateKey(); //生成秘钥
