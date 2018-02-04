@@ -58,7 +58,7 @@ public class AES {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         SecureRandom random = new SecureRandom();
         random.setSeed(seed.getBytes("UTF-8"));//设置加密用的种子
-        keyGenerator.init(random);
+        keyGenerator.init(128,random);
         SecretKey secretKey = keyGenerator.generateKey(); //生成秘钥
         return secretKey;
     }
