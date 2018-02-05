@@ -19,6 +19,7 @@
     </properties>
     <dependencies>
         <!--spring boot依赖-->
+
         <!--去除logback改用log4j2-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
